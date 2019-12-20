@@ -52,6 +52,13 @@ public class MyLinkedList<E> implements ILinkedList<E> {
 
     @Override
     public void clear() {
+        for (MyNode<E> x = first; x != null; ) {
+            MyNode<E> next = x.nextNode;
+            x.element = null;
+            x.nextNode = null;
+            x.previousNode = null;
+            x = next;
+        }
         first = last = null;
         size = 0;
     }
